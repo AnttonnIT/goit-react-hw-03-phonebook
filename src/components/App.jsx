@@ -19,8 +19,10 @@ export class App extends Component {
   };
   componentDidMount() {
     const contacts = load(LOCAL_STORAGE_KEY) || [];
+
     this.setState({ contacts });
   }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.contacts !== this.state.contacts) {
       save(LOCAL_STORAGE_KEY, this.state.contacts);
